@@ -40,11 +40,13 @@ export function CrudTable({ table, title, listColumns, fields, defaults, orderBy
   const upsert = useMutation({
     mutationFn: async (row: Row) => {
       const { id, ...rest } = row as Row & Record<string, unknown>;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const client = supabase.from(table) as any;
       if (id) {
-        const { error } = await supabase.from(table).update(rest).eq("id", id);
+        const { error } = await client.update(rest).eq("id", id);
         if (error) throw error;
       } else {
-        const { error } = await supabase.from(table).insert(rest as never);
+        const { error } = await client.insert(rest);
         if (error) throw error;
       }
     },
