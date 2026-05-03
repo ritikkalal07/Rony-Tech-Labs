@@ -4,6 +4,7 @@ import { MessageSquare, Send, Sparkles, X } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { useServerFn } from "@tanstack/react-start";
 import { chat } from "@/server/chat.functions";
+import { summarizeChat } from "@/server/chat-summary.functions";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
@@ -29,11 +30,38 @@ export function ChatbotWidget() {
   const [leadSent, setLeadSent] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const chatFn = useServerFn(chat);
+  const summarizeFn = useServerFn(summarizeChat);
 
   useEffect(() => {
     if (typeof window !== "undefined") localStorage.setItem("rtl-chat", JSON.stringify(messages.slice(-30)));
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages]);
+
+  // Auto-save lead with AI summary when user closes a meaningful conversation
+  const autoSaveLead = async (msgs: Msg[]) => {
+    if (msgs.length < 4 || leadSent) return;
+    try {
+      const res = await summarizeFn({ data: { messages: msgs } });
+      if (!res.ok) return;
+      const sum = res.summary as { intent?: string; summary?: string; key_points?: string[]; interest_score?: number; name?: string | null; contact?: string | null };
+      await supabase.from("chatbot_leads").insert({
+        name: contact.name.trim() || sum.name || "Anonymous visitor",
+        contact: contact.contact.trim() || sum.contact || "—",
+        intent: sum.intent ?? null,
+        transcript: msgs as unknown as never,
+        notes: sum as unknown as never,
+      });
+      setLeadSent(true);
+    } catch (e) { console.error("autoSaveLead", e); }
+  };
+
+  // Save when widget closes after exchange
+  useEffect(() => {
+    if (!open && messages.length >= 4 && !leadSent) {
+      autoSaveLead(messages);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
 
   const send = async (text: string) => {
     if (!text.trim() || loading) return;
@@ -46,7 +74,6 @@ export function ChatbotWidget() {
       const res = await chatFn({ data: { messages: next } });
       if (res.ok) {
         setMessages([...next, { role: "assistant", content: res.reply }]);
-        // Heuristic: surface lead form after meaningful exchange
         if (next.length >= 2 && !leadSent && !showLeadForm) {
           const intentMatch = /price|quote|hire|build|cost|timeline|when|start/i.test(text);
           if (intentMatch) setShowLeadForm(true);
@@ -62,17 +89,25 @@ export function ChatbotWidget() {
   const submitLead = async () => {
     if (!contact.name.trim() || !contact.contact.trim()) return;
     try {
+      // Generate AI summary alongside manual submission
+      let notes: unknown = {};
+      try {
+        const res = await summarizeFn({ data: { messages } });
+        if (res.ok) notes = res.summary;
+      } catch { /* non-fatal */ }
       await supabase.from("chatbot_leads").insert({
         name: contact.name.trim(),
         contact: contact.contact.trim(),
         intent: messages.find((m) => m.role === "user")?.content ?? null,
-        transcript: messages,
+        transcript: messages as unknown as never,
+        notes: notes as never,
       });
       setLeadSent(true);
       setShowLeadForm(false);
       setMessages((m) => [...m, { role: "assistant", content: `Thanks, **${contact.name}** — a strategist will reach out shortly. You can also call **82000 61970** directly.` }]);
     } catch (e) { console.error(e); }
   };
+
 
   return (
     <>

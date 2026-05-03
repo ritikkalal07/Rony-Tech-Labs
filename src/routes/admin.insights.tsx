@@ -21,11 +21,11 @@ function InsightsAdmin() {
       }}
       fields={[
         { name: "title", label: "Title" },
-        { name: "slug", label: "Slug" },
+        { name: "slug", label: "URL slug", hint: "Becomes /insights/<slug>" },
         { name: "author", label: "Author" },
-        { name: "read_minutes", label: "Read minutes", type: "number" },
-        { name: "cover_url", label: "Cover image URL", type: "url" },
-        { name: "excerpt", label: "Excerpt", type: "textarea", rows: 3 },
+        { name: "read_minutes", label: "Read time (minutes)", type: "number" },
+        { name: "cover_url", label: "Cover image", type: "image" },
+        { name: "excerpt", label: "Excerpt", type: "textarea", rows: 3, hint: "Shown in cards and meta description" },
         { name: "body", label: "Body (Markdown)", type: "textarea", rows: 16 },
         { name: "tags", label: "Tags", type: "tags" },
         { name: "published", label: "Published", type: "boolean" },

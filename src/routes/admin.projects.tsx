@@ -23,18 +23,21 @@ function ProjectsAdmin() {
         featured: false, published: true, sort_order: 0,
       }}
       fields={[
-        { name: "title", label: "Title" },
-        { name: "slug", label: "Slug", placeholder: "kebab-case-url" },
-        { name: "category", label: "Category", placeholder: "Web / AI / Mobile" },
-        { name: "client", label: "Client" },
+        { name: "title", label: "Title", placeholder: "Project name shown to visitors" },
+        { name: "slug", label: "URL slug", placeholder: "e.g. acme-redesign", hint: "Lowercase, dashes only. Becomes /projects/<slug>" },
+        { name: "category", label: "Category", type: "select", options: [
+          { value: "Web", label: "Web" }, { value: "AI", label: "AI" }, { value: "Mobile", label: "Mobile" },
+          { value: "Design", label: "Design" }, { value: "Software", label: "Software" },
+        ]},
+        { name: "client", label: "Client name" },
         { name: "year", label: "Year", type: "number" },
-        { name: "hero_url", label: "Hero image URL", type: "url" },
-        { name: "summary", label: "Summary", type: "textarea", rows: 3 },
-        { name: "body", label: "Body (Markdown)", type: "textarea", rows: 12 },
-        { name: "tech", label: "Tech stack", type: "tags" },
-        { name: "sort_order", label: "Sort order", type: "number" },
-        { name: "featured", label: "Featured", type: "boolean" },
-        { name: "published", label: "Published", type: "boolean" },
+        { name: "hero_url", label: "Hero image", type: "image", hint: "Upload or paste a URL — used in cards and detail page" },
+        { name: "summary", label: "Short summary", type: "textarea", rows: 3, hint: "1–2 sentences shown in listings" },
+        { name: "body", label: "Full case study (Markdown)", type: "textarea", rows: 12 },
+        { name: "tech", label: "Tech stack", type: "tags", hint: "Press comma to add" },
+        { name: "sort_order", label: "Sort order", type: "number", hint: "Lower numbers appear first" },
+        { name: "featured", label: "Featured on homepage", type: "boolean" },
+        { name: "published", label: "Published (visible publicly)", type: "boolean" },
       ]}
     />
   );

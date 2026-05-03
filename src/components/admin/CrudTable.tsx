@@ -3,13 +3,16 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Plus, Pencil, Trash2, X, Save } from "lucide-react";
+import { ImageUpload } from "./ImageUpload";
 
 export type Field = {
   name: string;
   label: string;
-  type?: "text" | "textarea" | "number" | "boolean" | "tags" | "url";
+  type?: "text" | "textarea" | "number" | "boolean" | "tags" | "url" | "image" | "select";
   placeholder?: string;
   rows?: number;
+  hint?: string;
+  options?: { value: string; label: string }[];
 };
 
 type Row = Record<string, unknown> & { id: string };
@@ -137,7 +140,7 @@ function EditDrawer({ row, fields, onClose, onSave, saving }: { row: Row; fields
                   className="mt-1.5 w-full bg-white/5 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40 font-mono text-sm" />
               ) : f.type === "boolean" ? (
                 <div className="mt-1.5">
-                  <button onClick={() => set(f.name, !state[f.name])}
+                  <button type="button" onClick={() => set(f.name, !state[f.name])}
                     className={`px-4 py-2 rounded-xl text-sm ${state[f.name] ? "bg-foreground text-background" : "bg-white/5"}`}>
                     {state[f.name] ? "Yes" : "No"}
                   </button>
@@ -150,10 +153,18 @@ function EditDrawer({ row, fields, onClose, onSave, saving }: { row: Row; fields
                   onChange={e => set(f.name, e.target.value.split(",").map(s => s.trim()).filter(Boolean))}
                   placeholder="comma, separated, tags"
                   className="mt-1.5 w-full bg-white/5 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40" />
+              ) : f.type === "image" ? (
+                <ImageUpload value={String(state[f.name] ?? "")} onChange={(v) => set(f.name, v)} />
+              ) : f.type === "select" ? (
+                <select value={String(state[f.name] ?? "")} onChange={e => set(f.name, e.target.value)}
+                  className="mt-1.5 w-full bg-white/5 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40">
+                  {(f.options ?? []).map(o => <option key={o.value} value={o.value} className="bg-background">{o.label}</option>)}
+                </select>
               ) : (
                 <input type={f.type === "url" ? "url" : "text"} value={String(state[f.name] ?? "")} onChange={e => set(f.name, e.target.value)} placeholder={f.placeholder}
                   className="mt-1.5 w-full bg-white/5 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40" />
               )}
+              {f.hint && <div className="mt-1 text-[11px] text-muted-foreground">{f.hint}</div>}
             </div>
           ))}
         </div>

@@ -21,6 +21,7 @@ export type Database = {
           id: string
           intent: string | null
           name: string | null
+          notes: Json
           transcript: Json
         }
         Insert: {
@@ -29,6 +30,7 @@ export type Database = {
           id?: string
           intent?: string | null
           name?: string | null
+          notes?: Json
           transcript?: Json
         }
         Update: {
@@ -37,6 +39,7 @@ export type Database = {
           id?: string
           intent?: string | null
           name?: string | null
+          notes?: Json
           transcript?: Json
         }
         Relationships: []
@@ -283,6 +286,7 @@ export type Database = {
       }
       site_settings: {
         Row: {
+          admin_email: string
           email: string
           feature_flags: Json
           id: number
@@ -293,6 +297,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          admin_email?: string
           email?: string
           feature_flags?: Json
           id?: number
@@ -303,6 +308,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          admin_email?: string
           email?: string
           feature_flags?: Json
           id?: number
