@@ -4,6 +4,7 @@ import { MessageSquare, Send, Sparkles, X } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { useServerFn } from "@tanstack/react-start";
 import { chat } from "@/server/chat.functions";
+import { summarizeChat } from "@/server/chat-summary.functions";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
