@@ -99,8 +99,8 @@ export function ChatbotWidget() {
         name: contact.name.trim(),
         contact: contact.contact.trim(),
         intent: messages.find((m) => m.role === "user")?.content ?? null,
-        transcript: messages,
-        notes,
+        transcript: messages as unknown as never,
+        notes: notes as never,
       });
       setLeadSent(true);
       setShowLeadForm(false);
