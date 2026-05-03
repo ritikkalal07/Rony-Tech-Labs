@@ -48,8 +48,8 @@ export function ChatbotWidget() {
         name: contact.name.trim() || sum.name || "Anonymous visitor",
         contact: contact.contact.trim() || sum.contact || "—",
         intent: sum.intent ?? null,
-        transcript: msgs,
-        notes: sum,
+        transcript: msgs as unknown as never,
+        notes: sum as unknown as never,
       });
       setLeadSent(true);
     } catch (e) { console.error("autoSaveLead", e); }
