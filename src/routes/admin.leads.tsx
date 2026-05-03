@@ -157,7 +157,7 @@ function DetailDrawer({ row, onClose }: { row: Json; onClose: () => void }) {
             </div>
           )}
 
-          {row.message && (
+          {typeof row.message === "string" && row.message && (
             <div>
               <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-2">Message</div>
               <p className="text-sm whitespace-pre-wrap bg-white/5 rounded-xl p-4">{String(row.message)}</p>
