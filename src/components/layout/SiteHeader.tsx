@@ -65,9 +65,18 @@ export function SiteHeader() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-            className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors font-mono"
+            className="group relative inline-flex items-center gap-2 text-xs font-mono pl-1.5 pr-3.5 py-1.5 rounded-full glass overflow-hidden hover:scale-[1.02] transition-transform"
+            aria-label={`Call ${SITE.phone}`}
           >
-            <Phone className="h-3.5 w-3.5" /> {SITE.phone}
+            <span className="absolute inset-0 bg-gradient-brand opacity-0 group-hover:opacity-20 transition-opacity" />
+            <span className="relative h-6 w-6 grid place-items-center rounded-full bg-gradient-to-br from-[hsl(var(--electric))] to-[hsl(var(--teal))] text-white">
+              <span className="absolute inset-0 rounded-full bg-[hsl(var(--electric))] animate-ping opacity-40" />
+              <Phone className="h-3 w-3 relative" />
+            </span>
+            <span className="relative tracking-wider">
+              <span className="text-muted-foreground">+91</span>{" "}
+              <span className="text-foreground">{SITE.phone}</span>
+            </span>
           </a>
         </div>
 
