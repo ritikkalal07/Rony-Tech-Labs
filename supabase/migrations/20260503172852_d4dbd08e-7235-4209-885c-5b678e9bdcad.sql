@@ -1,0 +1,1 @@
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS admin_email text NOT NULL DEFAULT 'mrrony9125@gmail.com';
