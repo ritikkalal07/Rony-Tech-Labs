@@ -3,13 +3,16 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Plus, Pencil, Trash2, X, Save } from "lucide-react";
+import { ImageUpload } from "./ImageUpload";
 
 export type Field = {
   name: string;
   label: string;
-  type?: "text" | "textarea" | "number" | "boolean" | "tags" | "url";
+  type?: "text" | "textarea" | "number" | "boolean" | "tags" | "url" | "image" | "select";
   placeholder?: string;
   rows?: number;
+  hint?: string;
+  options?: { value: string; label: string }[];
 };
 
 type Row = Record<string, unknown> & { id: string };
