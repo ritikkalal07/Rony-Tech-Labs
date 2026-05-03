@@ -21,6 +21,7 @@ export type Database = {
           id: string
           intent: string | null
           name: string | null
+          notes: Json
           transcript: Json
         }
         Insert: {
@@ -29,6 +30,7 @@ export type Database = {
           id?: string
           intent?: string | null
           name?: string | null
+          notes?: Json
           transcript?: Json
         }
         Update: {
@@ -37,6 +39,7 @@ export type Database = {
           id?: string
           intent?: string | null
           name?: string | null
+          notes?: Json
           transcript?: Json
         }
         Relationships: []
