@@ -3,9 +3,10 @@ export const SITE = {
   tagline: "We Build Digital Worlds",
   description:
     "An immersive digital innovation lab — engineering web, AI, mobile and software products that move metrics.",
-  phone: "82000 61970",
-  email: "hello@ronytechlabs.com",
-  url: "https://ronytechlabs.com",
+  phone: "+91 82000 61970",
+  email: "ronytechlabs@gmail.com",
+  url: "https://ronytechlabs.lovable.app",
+  location: "Ahmedabad, India",
 };
 
 export const NAV_LINKS = [

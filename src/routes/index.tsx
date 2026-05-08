@@ -12,10 +12,10 @@ const HeroScene = lazy(() => import("@/components/fx/HeroScene").then((m) => ({ 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rony Tech Labs — We Build Digital Worlds" },
-      { name: "description", content: "Premium digital innovation lab building web, AI, mobile and software products that move metrics." },
-      { property: "og:title", content: "Rony Tech Labs — We Build Digital Worlds" },
-      { property: "og:description", content: "Premium digital innovation studio." },
+      { title: "Rony Tech Labs — India's digital innovation studio" },
+      { name: "description", content: "Ahmedabad-based product studio building web, AI, mobile and SaaS for Indian and global brands. From MVP to scale." },
+      { property: "og:title", content: "Rony Tech Labs — India's digital innovation studio" },
+      { property: "og:description", content: "Ahmedabad-based studio shipping web, AI and mobile products for Indian and global brands." },
     ],
   }),
   component: HomePage,
@@ -73,12 +73,12 @@ function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
             </span>
-            <span className="text-foreground/80">Now booking Q3 engagements</span>
+            <span className="text-foreground/80">Booking Q3 — Ahmedabad · Mumbai · Bengaluru</span>
           </div>
         </motion.div>
 
         <h1 className="mt-6 font-display font-semibold tracking-[-0.04em] leading-[0.95] text-[clamp(2.75rem,10vw,9.5rem)]">
-          {["We", "Build", "Digital"].map((w, i) => (
+          {["Built", "in", "India."].map((w, i) => (
             <motion.span
               key={w}
               initial={{ y: "110%", opacity: 0 }}
@@ -91,7 +91,7 @@ function Hero() {
             initial={{ y: "110%", opacity: 0 }} animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.7, duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="inline-block text-gradient"
-          >Worlds.</motion.span>
+          >Shipped worldwide.</motion.span>
         </h1>
 
         <motion.p
@@ -99,8 +99,9 @@ function Hero() {
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
         >
-          A digital innovation lab engineering polished, production-grade products.
-          Web, AI, mobile, software — built with the rigor of a flagship product.
+          A Gujarat-born product studio engineering web, AI, mobile and SaaS for
+          ambitious Indian startups, D2C brands and enterprises — with the polish
+          global teams demand.
         </motion.p>
 
         <motion.div
@@ -152,7 +153,7 @@ function Hero() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground">AI copilot shipped</div>
-                <div className="text-sm font-medium">Northwind — $14M pipeline added</div>
+                <div className="text-sm font-medium">Tata Neu — ₹120Cr pipeline added</div>
               </div>
             </GlassPanel>
           </motion.div>
@@ -168,7 +169,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = ["Aurora Finance", "Lumen Health", "Northwind", "Stratus", "Orbit", "Vela", "Helios", "Apex"];
+  const items = ["Tata Neu", "Zomato", "CRED", "Razorpay", "Swiggy", "Nykaa", "PhonePe", "Flipkart", "Meesho", "Boat"];
   const all = [...items, ...items];
   return (
     <div className="border-y border-border/60 overflow-hidden py-6 bg-white/40 backdrop-blur">
@@ -276,10 +277,10 @@ function FeaturedProjects() {
 
 function Stats() {
   const stats = [
-    { v: "120+", l: "Products shipped", icon: Layers },
-    { v: "$48M", l: "Client revenue impact", icon: Zap },
+    { v: "120+", l: "Products shipped across India", icon: Layers },
+    { v: "₹400Cr+", l: "Client revenue impact", icon: Zap },
     { v: "30+", l: "AI features in production", icon: Cpu },
-    { v: "60fps", l: "On every device we ship", icon: Sparkles },
+    { v: "60fps", l: "On every device, even 2G", icon: Sparkles },
   ];
   return (
     <section className="relative py-32 px-4 md:px-8">
