@@ -41,8 +41,8 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Rony Tech Labs - We Build Digital Worlds" },
       { name: "twitter:description", content: "An innovative lab dedicated to creating web, AI, mobile, and software solutions that enhance performance metrics and drive measurable results." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/56ae3747-d859-4661-b845-13c720442a9a" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/56ae3747-d859-4661-b845-13c720442a9a" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OTChEDn0MFSFOP3q1YghuHp07ts2/social-images/social-1778262582985-Logo.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OTChEDn0MFSFOP3q1YghuHp07ts2/social-images/social-1778262582985-Logo.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
