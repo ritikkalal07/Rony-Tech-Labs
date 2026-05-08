@@ -73,7 +73,7 @@ function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
             </span>
-            <span className="text-foreground/80">Now booking Q3 engagements</span>
+            <span className="text-foreground/80">Booking Q3 — Ahmedabad · Mumbai · Bengaluru</span>
           </div>
         </motion.div>
 
