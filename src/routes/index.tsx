@@ -277,10 +277,10 @@ function FeaturedProjects() {
 
 function Stats() {
   const stats = [
-    { v: "120+", l: "Products shipped", icon: Layers },
-    { v: "$48M", l: "Client revenue impact", icon: Zap },
+    { v: "120+", l: "Products shipped across India", icon: Layers },
+    { v: "₹400Cr+", l: "Client revenue impact", icon: Zap },
     { v: "30+", l: "AI features in production", icon: Cpu },
-    { v: "60fps", l: "On every device we ship", icon: Sparkles },
+    { v: "60fps", l: "On every device, even 2G", icon: Sparkles },
   ];
   return (
     <section className="relative py-32 px-4 md:px-8">
