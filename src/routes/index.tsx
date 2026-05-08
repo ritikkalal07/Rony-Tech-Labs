@@ -78,7 +78,7 @@ function Hero() {
         </motion.div>
 
         <h1 className="mt-6 font-display font-semibold tracking-[-0.04em] leading-[0.95] text-[clamp(2.75rem,10vw,9.5rem)]">
-          {["We", "Build", "Digital"].map((w, i) => (
+          {["Built", "in", "India."].map((w, i) => (
             <motion.span
               key={w}
               initial={{ y: "110%", opacity: 0 }}
@@ -91,7 +91,7 @@ function Hero() {
             initial={{ y: "110%", opacity: 0 }} animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.7, duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="inline-block text-gradient"
-          >Worlds.</motion.span>
+          >Shipped worldwide.</motion.span>
         </h1>
 
         <motion.p
@@ -99,8 +99,9 @@ function Hero() {
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
         >
-          A digital innovation lab engineering polished, production-grade products.
-          Web, AI, mobile, software — built with the rigor of a flagship product.
+          A Gujarat-born product studio engineering web, AI, mobile and SaaS for
+          ambitious Indian startups, D2C brands and enterprises — with the polish
+          global teams demand.
         </motion.p>
 
         <motion.div
