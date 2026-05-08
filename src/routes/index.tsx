@@ -169,7 +169,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = ["Aurora Finance", "Lumen Health", "Northwind", "Stratus", "Orbit", "Vela", "Helios", "Apex"];
+  const items = ["Tata Neu", "Zomato", "CRED", "Razorpay", "Swiggy", "Nykaa", "PhonePe", "Flipkart", "Meesho", "Boat"];
   const all = [...items, ...items];
   return (
     <div className="border-y border-border/60 overflow-hidden py-6 bg-white/40 backdrop-blur">
