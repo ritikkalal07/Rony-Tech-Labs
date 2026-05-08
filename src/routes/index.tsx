@@ -153,7 +153,7 @@ function Hero() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground">AI copilot shipped</div>
-                <div className="text-sm font-medium">Northwind — $14M pipeline added</div>
+                <div className="text-sm font-medium">Tata Neu — ₹120Cr pipeline added</div>
               </div>
             </GlassPanel>
           </motion.div>
