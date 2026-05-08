@@ -12,10 +12,10 @@ const HeroScene = lazy(() => import("@/components/fx/HeroScene").then((m) => ({ 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rony Tech Labs — We Build Digital Worlds" },
-      { name: "description", content: "Premium digital innovation lab building web, AI, mobile and software products that move metrics." },
-      { property: "og:title", content: "Rony Tech Labs — We Build Digital Worlds" },
-      { property: "og:description", content: "Premium digital innovation studio." },
+      { title: "Rony Tech Labs — India's digital innovation studio" },
+      { name: "description", content: "Ahmedabad-based product studio building web, AI, mobile and SaaS for Indian and global brands. From MVP to scale." },
+      { property: "og:title", content: "Rony Tech Labs — India's digital innovation studio" },
+      { property: "og:description", content: "Ahmedabad-based studio shipping web, AI and mobile products for Indian and global brands." },
     ],
   }),
   component: HomePage,
