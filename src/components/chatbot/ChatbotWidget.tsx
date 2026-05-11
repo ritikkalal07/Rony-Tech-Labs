@@ -188,24 +188,24 @@ export function ChatbotWidget() {
               {showLeadForm && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                  className="rounded-2xl border border-[hsl(var(--electric))]/30 bg-[hsl(var(--electric))]/5 p-4 space-y-2.5"
+                  className="rounded-2xl border border-[hsl(var(--electric))]/40 bg-[hsl(var(--electric))]/5 p-4 space-y-2.5"
                 >
-                  <div className="text-xs text-muted-foreground">Want a strategist to reach out?</div>
+                  <div className="text-xs text-slate-600">Want a strategist to call you back?</div>
                   <input
                     placeholder="Your name"
                     value={contact.name}
                     onChange={(e) => setContact((c) => ({ ...c, name: e.target.value }))}
-                    className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/50"
+                    className="w-full rounded-lg bg-white border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40"
                   />
                   <input
                     placeholder="Email or phone"
                     value={contact.contact}
                     onChange={(e) => setContact((c) => ({ ...c, contact: e.target.value }))}
-                    className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/50"
+                    className="w-full rounded-lg bg-white border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40"
                   />
                   <div className="flex gap-2">
-                    <button onClick={submitLead} className="flex-1 rounded-lg bg-foreground text-background px-3 py-2 text-xs font-medium">Send</button>
-                    <button onClick={() => setShowLeadForm(false)} className="rounded-lg border border-white/10 px-3 py-2 text-xs">Later</button>
+                    <button onClick={submitLead} className="flex-1 rounded-lg bg-slate-900 text-white px-3 py-2 text-xs font-medium hover:bg-slate-800">Send</button>
+                    <button onClick={() => setShowLeadForm(false)} className="rounded-lg border border-slate-200 px-3 py-2 text-xs text-slate-700">Later</button>
                   </div>
                 </motion.div>
               )}
@@ -213,19 +213,19 @@ export function ChatbotWidget() {
 
             <form
               onSubmit={(e) => { e.preventDefault(); send(input); }}
-              className="p-3 border-t border-white/10 flex gap-2"
+              className="p-3 border-t border-slate-200 flex gap-2 bg-white"
             >
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about a project, service, or quote…"
                 disabled={loading}
-                className="flex-1 rounded-full bg-white/5 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/50"
+                className="flex-1 rounded-full bg-slate-50 border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40"
               />
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="h-10 w-10 grid place-items-center rounded-full bg-foreground text-background disabled:opacity-40"
+                className="h-10 w-10 grid place-items-center rounded-full bg-slate-900 text-white hover:bg-slate-800 disabled:opacity-40"
                 aria-label="Send"
               ><Send className="h-4 w-4" /></button>
             </form>
