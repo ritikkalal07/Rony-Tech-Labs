@@ -73,9 +73,8 @@ export function SiteHeader() {
               <span className="absolute inset-0 rounded-full bg-[hsl(var(--electric))] animate-ping opacity-40" />
               <Phone className="h-3 w-3 relative" />
             </span>
-            <span className="relative tracking-wider">
-              <span className="text-muted-foreground">+91</span>{" "}
-              <span className="text-foreground">{SITE.phone}</span>
+            <span className="relative tracking-wider text-foreground">
+              {SITE.phone}
             </span>
           </a>
         </div>
