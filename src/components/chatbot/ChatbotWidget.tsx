@@ -145,19 +145,19 @@ export function ChatbotWidget() {
               </div>
             </div>
 
-            <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-3 text-sm">
+            <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-3 text-sm bg-white">
               {messages.length === 0 && (
                 <div className="space-y-4">
-                  <div className="text-foreground/80 leading-relaxed">
-                    Hi — I'm <span className="text-gradient font-medium">Rony AI</span>.
-                    Ask me anything about what we build, or pick a starter:
+                  <div className="text-slate-700 leading-relaxed">
+                    Namaste 🙏 — I'm <span className="text-gradient font-semibold">Rony AI</span>.
+                    Ask me about pricing, timelines, or pick a starter:
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     {SUGGESTIONS.map((s) => (
                       <button
                         key={s}
                         onClick={() => send(s)}
-                        className="text-left text-xs px-3 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-colors"
+                        className="text-left text-xs px-3 py-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 transition-colors"
                       >{s}</button>
                     ))}
                   </div>
@@ -168,20 +168,20 @@ export function ChatbotWidget() {
                   <div className={cn(
                     "max-w-[85%] rounded-2xl px-3.5 py-2.5 leading-relaxed",
                     m.role === "user"
-                      ? "bg-gradient-to-br from-[hsl(var(--electric))] to-[hsl(var(--electric))]/80 text-white"
-                      : "bg-white/5 border border-white/5",
+                      ? "bg-gradient-to-br from-[hsl(var(--electric))] to-[hsl(var(--electric))]/85 text-white shadow-sm"
+                      : "bg-slate-100 text-slate-900 border border-slate-200",
                   )}>
                     {m.role === "assistant"
-                      ? <div className="prose prose-invert prose-sm max-w-none [&>*]:my-1.5"><ReactMarkdown>{m.content}</ReactMarkdown></div>
+                      ? <div className="prose prose-sm max-w-none text-slate-900 [&>*]:my-1.5 [&_a]:text-[hsl(var(--electric))]"><ReactMarkdown>{m.content}</ReactMarkdown></div>
                       : <span>{m.content}</span>}
                   </div>
                 </div>
               ))}
               {loading && (
                 <div className="flex gap-1.5 px-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground/40 animate-bounce" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground/40 animate-bounce [animation-delay:120ms]" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground/40 animate-bounce [animation-delay:240ms]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:120ms]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:240ms]" />
                 </div>
               )}
 
