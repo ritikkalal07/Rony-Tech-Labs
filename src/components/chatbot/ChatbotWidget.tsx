@@ -133,15 +133,15 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ type: "spring", stiffness: 260, damping: 24 }}
-            className="fixed bottom-24 right-6 z-50 w-[min(380px,calc(100vw-2rem))] h-[min(560px,calc(100vh-8rem))] glass-strong rounded-3xl flex flex-col overflow-hidden shadow-[0_50px_120px_-30px_hsl(230_50%_2%/0.9)]"
+            className="fixed bottom-24 right-6 z-50 w-[min(380px,calc(100vw-2rem))] h-[min(560px,calc(100vh-8rem))] bg-white text-slate-900 rounded-3xl flex flex-col overflow-hidden shadow-[0_30px_80px_-20px_rgba(15,23,42,0.35)] border border-slate-200"
           >
-            <div className="px-5 py-4 border-b border-white/10 flex items-center gap-3">
+            <div className="px-5 py-4 border-b border-slate-200 flex items-center gap-3 bg-white">
               <div className="h-9 w-9 rounded-full bg-gradient-to-br from-[hsl(var(--electric))] to-[hsl(var(--teal))] grid place-items-center pulse-glow">
                 <Sparkles className="h-4 w-4 text-white" />
               </div>
               <div>
-                <div className="text-sm font-medium">Rony AI</div>
-                <div className="text-[11px] text-muted-foreground">Live • answers in seconds</div>
+                <div className="text-sm font-semibold text-slate-900">Rony AI · Concierge</div>
+                <div className="text-[11px] text-slate-500">Live • typically replies in seconds</div>
               </div>
             </div>
 
