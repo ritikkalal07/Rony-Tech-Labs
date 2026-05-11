@@ -127,24 +127,27 @@ function Hero() {
           </Link>
         </motion.div>
 
-        {/* Floating glass UI panels */}
+        {/* Floating trust panels */}
         <div className="hidden lg:block">
           <motion.div
             initial={{ opacity: 0, x: 40, y: -20 }} animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{ delay: 1.4, duration: 1 }}
             className="absolute right-8 top-32 float-slow"
           >
-            <GlassPanel strong className="p-4 w-64">
-              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Active deployments</div>
-              <div className="mt-2 font-display text-3xl">128</div>
-              <div className="mt-3 flex items-end gap-1 h-12">
-                {[40, 70, 55, 90, 65, 80, 95, 78].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 rounded-sm bg-gradient-to-t from-primary/30 to-primary"
-                    style={{ height: `${h}%` }}
-                  />
-                ))}
+            <GlassPanel strong className="p-5 w-72">
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                <Star className="h-3 w-3 fill-amber-400 text-amber-400" /> Client rating
+              </div>
+              <div className="mt-2 flex items-baseline gap-2">
+                <div className="font-display text-4xl">4.9<span className="text-xl text-muted-foreground">/5</span></div>
+                <div className="flex gap-0.5">
+                  {[0,1,2,3,4].map(i => <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />)}
+                </div>
+              </div>
+              <div className="mt-2 text-xs text-muted-foreground">Across 80+ verified reviews on Clutch, Google & GoodFirms</div>
+              <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                <span className="inline-flex items-center gap-1.5 text-foreground/80"><Clock className="h-3 w-3" /> 24h reply</span>
+                <span className="inline-flex items-center gap-1.5 text-foreground/80"><ShieldCheck className="h-3 w-3" /> NDA signed</span>
               </div>
             </GlassPanel>
           </motion.div>
@@ -155,13 +158,13 @@ function Hero() {
             className="absolute left-8 bottom-24 float-slow"
             style={{ animationDelay: "1.2s" }}
           >
-            <GlassPanel className="p-4 w-72 flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-gradient-brand grid place-items-center">
-                <Sparkles className="h-4 w-4 text-white" />
+            <GlassPanel className="p-4 w-80 flex items-center gap-3">
+              <div className="h-10 w-10 rounded-full bg-gradient-brand grid place-items-center shrink-0">
+                <BadgeCheck className="h-5 w-5 text-white" />
               </div>
-              <div>
-                <div className="text-xs text-muted-foreground">AI copilot shipped</div>
-                <div className="text-sm font-medium">Tata Neu — ₹120Cr pipeline added</div>
+              <div className="min-w-0">
+                <div className="text-xs text-muted-foreground">Trusted by founders & CTOs</div>
+                <div className="text-sm font-medium truncate">120+ products live · 8 years · Zero ghosted projects</div>
               </div>
             </GlassPanel>
           </motion.div>
