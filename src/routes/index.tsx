@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Zap, Layers, Cpu, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Zap, Layers, Cpu, Sparkles, Star, ShieldCheck, BadgeCheck, Clock } from "lucide-react";
 import { MagneticButton } from "@/components/ui-kit/MagneticButton";
 import { GlassPanel } from "@/components/ui-kit/GlassPanel";
 import { supabase } from "@/integrations/supabase/client";
