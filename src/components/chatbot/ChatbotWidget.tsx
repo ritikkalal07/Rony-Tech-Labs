@@ -133,31 +133,31 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ type: "spring", stiffness: 260, damping: 24 }}
-            className="fixed bottom-24 right-6 z-50 w-[min(380px,calc(100vw-2rem))] h-[min(560px,calc(100vh-8rem))] glass-strong rounded-3xl flex flex-col overflow-hidden shadow-[0_50px_120px_-30px_hsl(230_50%_2%/0.9)]"
+            className="fixed bottom-24 right-6 z-50 w-[min(380px,calc(100vw-2rem))] h-[min(560px,calc(100vh-8rem))] bg-white text-slate-900 rounded-3xl flex flex-col overflow-hidden shadow-[0_30px_80px_-20px_rgba(15,23,42,0.35)] border border-slate-200"
           >
-            <div className="px-5 py-4 border-b border-white/10 flex items-center gap-3">
+            <div className="px-5 py-4 border-b border-slate-200 flex items-center gap-3 bg-white">
               <div className="h-9 w-9 rounded-full bg-gradient-to-br from-[hsl(var(--electric))] to-[hsl(var(--teal))] grid place-items-center pulse-glow">
                 <Sparkles className="h-4 w-4 text-white" />
               </div>
               <div>
-                <div className="text-sm font-medium">Rony AI</div>
-                <div className="text-[11px] text-muted-foreground">Live • answers in seconds</div>
+                <div className="text-sm font-semibold text-slate-900">Rony AI · Concierge</div>
+                <div className="text-[11px] text-slate-500">Live • typically replies in seconds</div>
               </div>
             </div>
 
-            <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-3 text-sm">
+            <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-3 text-sm bg-white">
               {messages.length === 0 && (
                 <div className="space-y-4">
-                  <div className="text-foreground/80 leading-relaxed">
-                    Hi — I'm <span className="text-gradient font-medium">Rony AI</span>.
-                    Ask me anything about what we build, or pick a starter:
+                  <div className="text-slate-700 leading-relaxed">
+                    Namaste 🙏 — I'm <span className="text-gradient font-semibold">Rony AI</span>.
+                    Ask me about pricing, timelines, or pick a starter:
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     {SUGGESTIONS.map((s) => (
                       <button
                         key={s}
                         onClick={() => send(s)}
-                        className="text-left text-xs px-3 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-colors"
+                        className="text-left text-xs px-3 py-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 transition-colors"
                       >{s}</button>
                     ))}
                   </div>
@@ -168,44 +168,44 @@ export function ChatbotWidget() {
                   <div className={cn(
                     "max-w-[85%] rounded-2xl px-3.5 py-2.5 leading-relaxed",
                     m.role === "user"
-                      ? "bg-gradient-to-br from-[hsl(var(--electric))] to-[hsl(var(--electric))]/80 text-white"
-                      : "bg-white/5 border border-white/5",
+                      ? "bg-gradient-to-br from-[hsl(var(--electric))] to-[hsl(var(--electric))]/85 text-white shadow-sm"
+                      : "bg-slate-100 text-slate-900 border border-slate-200",
                   )}>
                     {m.role === "assistant"
-                      ? <div className="prose prose-invert prose-sm max-w-none [&>*]:my-1.5"><ReactMarkdown>{m.content}</ReactMarkdown></div>
+                      ? <div className="prose prose-sm max-w-none text-slate-900 [&>*]:my-1.5 [&_a]:text-[hsl(var(--electric))]"><ReactMarkdown>{m.content}</ReactMarkdown></div>
                       : <span>{m.content}</span>}
                   </div>
                 </div>
               ))}
               {loading && (
                 <div className="flex gap-1.5 px-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground/40 animate-bounce" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground/40 animate-bounce [animation-delay:120ms]" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground/40 animate-bounce [animation-delay:240ms]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:120ms]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:240ms]" />
                 </div>
               )}
 
               {showLeadForm && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                  className="rounded-2xl border border-[hsl(var(--electric))]/30 bg-[hsl(var(--electric))]/5 p-4 space-y-2.5"
+                  className="rounded-2xl border border-[hsl(var(--electric))]/40 bg-[hsl(var(--electric))]/5 p-4 space-y-2.5"
                 >
-                  <div className="text-xs text-muted-foreground">Want a strategist to reach out?</div>
+                  <div className="text-xs text-slate-600">Want a strategist to call you back?</div>
                   <input
                     placeholder="Your name"
                     value={contact.name}
                     onChange={(e) => setContact((c) => ({ ...c, name: e.target.value }))}
-                    className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/50"
+                    className="w-full rounded-lg bg-white border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40"
                   />
                   <input
                     placeholder="Email or phone"
                     value={contact.contact}
                     onChange={(e) => setContact((c) => ({ ...c, contact: e.target.value }))}
-                    className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/50"
+                    className="w-full rounded-lg bg-white border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40"
                   />
                   <div className="flex gap-2">
-                    <button onClick={submitLead} className="flex-1 rounded-lg bg-foreground text-background px-3 py-2 text-xs font-medium">Send</button>
-                    <button onClick={() => setShowLeadForm(false)} className="rounded-lg border border-white/10 px-3 py-2 text-xs">Later</button>
+                    <button onClick={submitLead} className="flex-1 rounded-lg bg-slate-900 text-white px-3 py-2 text-xs font-medium hover:bg-slate-800">Send</button>
+                    <button onClick={() => setShowLeadForm(false)} className="rounded-lg border border-slate-200 px-3 py-2 text-xs text-slate-700">Later</button>
                   </div>
                 </motion.div>
               )}
@@ -213,19 +213,19 @@ export function ChatbotWidget() {
 
             <form
               onSubmit={(e) => { e.preventDefault(); send(input); }}
-              className="p-3 border-t border-white/10 flex gap-2"
+              className="p-3 border-t border-slate-200 flex gap-2 bg-white"
             >
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about a project, service, or quote…"
                 disabled={loading}
-                className="flex-1 rounded-full bg-white/5 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/50"
+                className="flex-1 rounded-full bg-slate-50 border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-[hsl(var(--electric))]/40"
               />
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="h-10 w-10 grid place-items-center rounded-full bg-foreground text-background disabled:opacity-40"
+                className="h-10 w-10 grid place-items-center rounded-full bg-slate-900 text-white hover:bg-slate-800 disabled:opacity-40"
                 aria-label="Send"
               ><Send className="h-4 w-4" /></button>
             </form>

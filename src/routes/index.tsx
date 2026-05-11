@@ -99,9 +99,9 @@ function Hero() {
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
         >
-          A Gujarat-born product studio engineering web, AI, mobile and SaaS for
-          ambitious Indian startups, D2C brands and enterprises — with the polish
-          global teams demand.
+          A Gujarat-born product studio engineering websites, AI tools, mobile apps
+          and SaaS for Indian startups, D2C brands and enterprises. Honest pricing,
+          fixed timelines, and code you actually own.
         </motion.p>
 
         <motion.div
