@@ -73,7 +73,15 @@ function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
             </span>
-            <span className="text-foreground/80">Booking Q3 — Ahmedabad · Mumbai · Bengaluru</span>
+            <span className="text-foreground/80">Now booking — Ahmedabad · Mumbai · Bengaluru · Remote</span>
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-[hsl(var(--teal))]" /> NDA-first engagements</span>
+            <span className="opacity-30">•</span>
+            <span className="inline-flex items-center gap-1.5"><BadgeCheck className="h-3.5 w-3.5 text-[hsl(var(--electric))]" /> MSME registered</span>
+            <span className="opacity-30">•</span>
+            <span className="inline-flex items-center gap-1.5"><Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" /> 4.9/5 on Clutch & Google</span>
           </div>
         </motion.div>
 
